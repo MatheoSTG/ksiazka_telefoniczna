@@ -1,0 +1,58 @@
+{% extends 'phonebook/base.html' %}
+{% block title %}Dane osoby{% endblock %}
+
+{% block body %}
+
+<h3>{{ person }}</h3>
+<h4>Numer:</h4>
+<ul>
+    {% for phone in person.phonenumber_set.all %}
+        <li>{{ phone.number }}</li>
+        <form action="{% url 'phonebook:delete_phone' phone.id person.id %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-default btn-sm">
+                    <span class="fa fa-trash"></span>
+                </button>
+        </form>
+            <form action="{% url 'phonebook:update_phone' phone.id person.id %}" method="get" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-default btn-sm">
+                    <span class="fa fa-pencil"></span>
+                </button>
+            </form>
+    {% endfor %}
+    <br>
+    <form action="{% url 'phonebook:add_phone' person.id %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success btn-sm">
+                    Dodaj numer telefonu
+                </button>
+    </form>
+</ul>
+<h4>Email:</h4>
+<ul>
+    {% for email in person.email_set.all %}
+        <li>{{ email.email }}</li>
+        <form action="{% url 'phonebook:delete_email' email.id person.id %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-default btn-sm">
+                    <span class="fa fa-trash"></span>
+                </button>
+        </form>
+            <form action="{% url 'phonebook:update_email' email.id person.id %}" method="get" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-default btn-sm">
+                    <span class="fa fa-pencil"></span>
+                </button>
+            </form>
+    {% endfor %}
+    <br>
+    <form action="{% url 'phonebook:add_email' person.id %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success btn-sm">
+                    Dodaj adres email
+                </button>
+    </form>
+</ul>
+
+{% endblock %}

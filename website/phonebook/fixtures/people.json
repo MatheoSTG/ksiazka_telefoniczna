@@ -1,0 +1,162 @@
+[
+  {
+    "model": "phonebook.person",
+    "pk": 1,
+    "fields": {
+      "firstName": "Anna",
+      "lastName": "Nowak"
+    }
+  },
+  {
+    "model": "phonebook.person",
+    "pk": 2,
+    "fields": {
+      "firstName": "Tadeusz",
+      "lastName": "Kościuszko"
+    }
+  },
+  {
+    "model": "phonebook.person",
+    "pk": 3,
+    "fields": {
+      "firstName": "Krzysztof",
+      "lastName": "Krawczyk"
+    }
+  },
+  {
+    "model": "phonebook.person",
+    "pk": 4,
+    "fields": {
+      "firstName": "Tadeusz",
+      "lastName": "Bednar"
+    }
+  },
+  {
+    "model": "phonebook.person",
+    "pk": 5,
+    "fields": {
+      "firstName": "Władysław",
+      "lastName": "Jagiełło"
+    }
+  },
+  {
+    "model": "phonebook.person",
+    "pk": 6,
+    "fields": {
+      "firstName": "Aneta",
+      "lastName": "Włodarczyk"
+    }
+  },
+  {
+    "model": "phonebook.person",
+    "pk": 7,
+    "fields": {
+      "firstName": "Beata",
+      "lastName": "Kozidrak"
+    }
+  },
+  {
+    "model": "phonebook.person",
+    "pk": 8,
+    "fields": {
+      "firstName": "Halina",
+      "lastName": "Kiepska"
+    }
+  },
+  {
+    "model": "phonebook.person",
+    "pk": 9,
+    "fields": {
+      "firstName": "Mariusz",
+      "lastName": "Pudzianowski"
+    }
+  },
+  {
+    "model": "phonebook.person",
+    "pk": 10,
+    "fields": {
+      "firstName": "Aleksandra",
+      "lastName": "Szwed"
+    }
+  },
+  {
+    "model": "phonebook.person",
+    "pk": 11,
+    "fields": {
+      "firstName": "Czesław",
+      "lastName": "Miłosz"
+    }
+  },
+  {
+    "model": "phonebook.person",
+    "pk": 12,
+    "fields": {
+      "firstName": "Jan",
+      "lastName": "Kowalski"
+    }
+  },
+  {
+    "model": "phonebook.person",
+    "pk": 13,
+    "fields": {
+      "firstName": "Jadwiga",
+      "lastName": "Staniak"
+    }
+  },
+  {
+    "model": "phonebook.person",
+    "pk": 14,
+    "fields": {
+      "firstName": "Karolina",
+      "lastName": "Nowak"
+    }
+  },
+  {
+    "model": "phonebook.person",
+    "pk": 15,
+    "fields": {
+      "firstName": "Beata",
+      "lastName": "Nowak"
+    }
+  },
+  {
+    "model": "phonebook.person",
+    "pk": 16,
+    "fields": {
+      "firstName": "Karolina",
+      "lastName": "Nowakowska"
+    }
+  },
+  {
+    "model": "phonebook.person",
+    "pk": 17,
+    "fields": {
+      "firstName": "Krzysztof",
+      "lastName": "Gruz"
+    }
+  },
+  {
+    "model": "phonebook.person",
+    "pk": 18,
+    "fields": {
+      "firstName": "Przemysław",
+      "lastName": "Hajzer"
+    }
+  },
+  {
+    "model": "phonebook.person",
+    "pk": 19,
+    "fields": {
+      "firstName": "Natalia",
+      "lastName": "Fiołek"
+    }
+  },
+  {
+    "model": "phonebook.person",
+    "pk": 20,
+    "fields": {
+      "firstName": "Konrad",
+      "lastName": "Mazowiecki"
+    }
+  }
+]

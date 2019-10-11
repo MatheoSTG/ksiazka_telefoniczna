@@ -1,0 +1,53 @@
+{% extends 'phonebook/base.html' %}
+{% load classname %}
+{% block title %}Wyniki wyszukiwania{% endblock %}
+
+{% block body %}
+<h3>Wyniki wyszukiwania:</h3>
+{% if all_people %}
+    <ul>
+        {% for req in all_people %}
+            {% with req|classname as modelclass %}
+            {% if modelclass == "Person" %}
+            <li><a href="{% url 'phonebook:person_detail' req.id %}">{{ req }}</a>
+            </li>
+            {% else %}
+            <li><a href="{% url 'phonebook:person_detail' req.person_id %}">{{ req }}</a>
+            </li>
+            {% endif %}
+            {% endwith %}
+
+        {% endfor %}
+    </ul>
+{% else %}
+    <h4>Brak danych!</h4>
+{% endif %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% if is_paginated %}
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+{%endblock%}

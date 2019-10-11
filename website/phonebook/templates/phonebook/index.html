@@ -1,0 +1,56 @@
+{% extends 'phonebook/base.html' %}
+{% block title %}Książka telefoniczna{% endblock %}
+
+{% block body %}
+{% if all_people %}
+    <ul>
+        {% for person in all_people %}
+        <li><a href="{% url 'phonebook:person_detail' person.id %}">{{ person }}</a>
+            <form action="{% url 'phonebook:delete_person' person.id %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-default btn-sm">
+                    <span class="fa fa-trash"></span>
+                </button>
+            </form>
+            <form action="{% url 'phonebook:update_person' person.id %}" method="get" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-default btn-sm">
+                    <span class="fa fa-pencil"></span>
+                </button>
+            </form>
+        </li>
+
+        {% endfor %}
+    </ul>
+{% else %}
+    <h4>Brak osób w książce!</h4>
+{% endif %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% if is_paginated %}
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+{%endblock%}
